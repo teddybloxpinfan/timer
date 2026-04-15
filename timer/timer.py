@@ -2,6 +2,7 @@
 
 import time
 import pygame
+import os
 
 pygame.init()
 
@@ -13,11 +14,18 @@ timer = int(input())
 
 noise = pygame.mixer.Sound('extremely-loud-correct-buzzer.mp3')
 
+def clear():
+	os.system('clear')
+
+#timer stuff
 while True:
 	timer = timer - 0.1
 	time.sleep(0.1)
+	print("you have " + str(timer) + "time left!")
+	clear()
 	if timer <= 0:
 		break
-print("timer done!")
+
 noise.play()
 time.sleep(2.5)
+
